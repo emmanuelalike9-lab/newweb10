@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 360px;
+  background: #faf8f2;
+}
+
+body {
+  margin: 0;
+  min-width: 360px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #c66b4e;
+  outline-offset: 3px;
+}
