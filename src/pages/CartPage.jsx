@@ -2,7 +2,7 @@ import SiteFooter from '../layouts/SiteFooter';
 
 const money = (amount) => new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN', maximumFractionDigits: 0 }).format(amount);
 
-export default function CartPage({ products, cartItems, cartCount, cartProducts, cartSubtotal, changeQuantity, setCartItems, checkout, user, onLogout, navigate }) {
+export default function CartPage({ cartCount, cartProducts, cartSubtotal, changeQuantity, setCartItems, user, onLogout, navigate }) {
   return (
     <div className="storefront cart-page">
       <header className="site-header cart-site-header">

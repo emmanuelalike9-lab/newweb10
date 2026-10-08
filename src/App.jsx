@@ -163,14 +163,6 @@ export default function App() {
     navigate('/');
   }
 
-  function checkout() {
-    if (!user) {
-      navigate('/login');
-      return;
-    }
-    navigate('/checkout');
-  }
-
   function toggleTheme() {
     setTheme((currentTheme) => currentTheme === 'light' ? 'dark' : 'light');
   }
@@ -229,14 +221,11 @@ export default function App() {
           path="/cart"
           element={
             <CartPage
-              products={products}
-              cartItems={cartItems}
               cartCount={cartCount}
               cartProducts={cartProducts}
               cartSubtotal={cartSubtotal}
               changeQuantity={changeQuantity}
               setCartItems={setCartItems}
-              checkout={checkout}
               user={user}
               onLogout={handleLogout}
               navigate={navigate}
@@ -245,7 +234,7 @@ export default function App() {
         />
         <Route path="/login" element={<LoginPage onLogin={handleLogin} user={user} />} />
         <Route path="/signup" element={<SignupPage onSignup={handleSignup} user={user} />} />
-        <Route path="/checkout" element={<CheckoutPage cartProducts={cartProducts} cartSubtotal={cartSubtotal} user={user} onPlaceOrder={handleCheckoutSubmit} navigate={navigate} />} />
+        <Route path="/checkout" element={<CheckoutPage cartProducts={cartProducts} cartSubtotal={cartSubtotal} user={user} navigate={navigate} />} />
         <Route path="/payment" element={<PaymentPage onPlaceOrder={handleCheckoutSubmit} />} />
         <Route path="/success" element={<SuccessPage user={user} navigate={navigate} />} />
         <Route path="*" element={<Navigate to="/" replace />} />

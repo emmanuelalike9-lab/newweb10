@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
 const money = (amount) => new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN', maximumFractionDigits: 0 }).format(amount);
 
-export default function CheckoutPage({ cartProducts, cartSubtotal, user, onPlaceOrder, navigate }) {
+export default function CheckoutPage({ cartProducts, cartSubtotal, user, navigate }) {
   const [form, setForm] = useState({
     fullName: user?.name || '',
     email: user?.email || '',

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { SearchIcon } from '../components/Icons';
 
-export default function SiteHeader({ query, setQuery, cartCount, user, onLogout, navigate }) {
+export default function SiteHeader({ query, setQuery, cartCount, user, onLogout }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {

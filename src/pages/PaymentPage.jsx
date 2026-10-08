@@ -12,18 +12,11 @@ export default function PaymentPage({ onPlaceOrder }) {
   const name = paymentData.name || '';
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const hasMissingDetails = !amount || !email;
+  const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 
   useEffect(() => {
-    if (!amount || !email) {
-      setError('No payment details were found. Please return to checkout.');
-      setIsLoading(false);
-      return;
-    }
-
-    const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
-    if (!publicKey) {
-      setError('Paystack public key is missing. Please add VITE_PAYSTACK_PUBLIC_KEY to your environment.');
-      setIsLoading(false);
+    if (hasMissingDetails || !publicKey) {
       return;
     }
 
@@ -109,7 +102,13 @@ export default function PaymentPage({ onPlaceOrder }) {
     return () => {
       isCancelled = true;
     };
-  }, [amount, email, name, onPlaceOrder]);
+  }, [amount, email, name, hasMissingDetails, onPlaceOrder, publicKey]);
+
+  const paymentError = hasMissingDetails
+    ? 'No payment details were found. Please return to checkout.'
+    : !publicKey
+      ? 'Paystack public key is missing. Please add VITE_PAYSTACK_PUBLIC_KEY to your environment.'
+      : error;
 
   return (
     <div className="payment-page">
@@ -128,9 +127,9 @@ export default function PaymentPage({ onPlaceOrder }) {
             <strong>{money(amount)}</strong>
           </div>
 
-          {error ? (
+          {paymentError ? (
             <div className="payment-state error-state">
-              <p>{error}</p>
+              <p>{paymentError}</p>
               <button type="button" className="primary-button" onClick={() => navigate('/checkout')}>Return to checkout</button>
             </div>
           ) : (
