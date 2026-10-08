@@ -209,7 +209,7 @@ img { display: block; max-width: 100%; }
 .story-feature-copy .eyebrow { margin-bottom: 14px; }
 .story-feature-copy h2 { position: relative; z-index: 1; font-size: clamp(31px, 3.2vw, 43px); }
 .story-feature-copy > p:not(.eyebrow) { max-width: 360px; margin: 16px 0 21px; color: #73796f; font-size: 11px; line-height: 1.8; }
-.story-feature-mark { position: absolute; right: -18px; bottom: -82px; color: rgba(198,107,78,.09); font-family: var(--display); font-size: 255px; font-style: italic; line-height: 1; }
+.story-feature-mark { position: absolute; right: -18px; bottom: -82px; color: rgba(198,107,78,.09); font-family: var(--display); font-size: 255px; font-style: italic; line-height: 1; pointer-events: none; }
 
 .info-page { padding: 0 7.6%; }
 .info-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 8%; padding: 64px 5% 72px; }
@@ -531,6 +531,11 @@ body[data-theme='dark'] .cart-back-link:hover {
   .photo-caption { right: 2%; bottom: -5px; width: 54%; font-size: 7px; }
   .hero-asterisk { top: -7px; right: -22px; font-size: 24px; }
   .hero-index { display: none; }
+  .story-feature { grid-template-columns: 1fr; }
+  .story-feature-image { min-height: 240px; }
+  .story-feature-copy { padding: 31px 8% 37px; }
+  .story-feature-copy h2 { font-size: 35px; }
+  .story-feature-copy > p:not(.eyebrow) { font-size: 10px; }
   .shop-hero { grid-template-columns: 1fr; gap: 18px; margin-top: 20px; padding: 18px 18px 0; }
   .home-aside,
   .shop-aside { gap: 12px; }
@@ -580,7 +585,8 @@ body[data-theme='dark'] .cart-back-link:hover {
   .site-footer > p { display: none; }
   .site-footer > span { font-size: 8px; }
   .site-footer > a:last-child { font-size: 8px; }
-  .theme-toggle { z-index: 60; top: 12px; right: 12px; width: 38px; height: 38px; }
+  .theme-toggle { z-index: 60; top: 12px; right: 66px; width: 38px; height: 38px; }
+  .cart-header-actions { position: relative; z-index: 61; }
   .toast { top: 12px; min-width: calc(100vw - 24px); padding: 11px 14px; font-size: 10px; letter-spacing: .06em; }
   .cart-site-header { height: 66px; }
   .cart-page-label { font-size: 8px; white-space: nowrap; }

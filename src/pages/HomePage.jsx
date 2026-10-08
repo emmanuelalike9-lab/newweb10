@@ -55,7 +55,7 @@ export default function HomePage({
             <p className="eyebrow">A NOTE FROM HOME</p>
             <h2>Made for everyday rituals.<br /><em>Built to last.</em></h2>
             <p>Every piece on Sammi's Furnishings is chosen for how it feels in real life: useful, warm, and worth the room it takes up.</p>
-            <a href="/shop" className="text-link">Browse the collection <span aria-hidden="true">↗</span></a>
+            <a href="/shop" className="text-link" onClick={(event) => { event.preventDefault(); navigate('/shop'); }}>Browse the collection <span aria-hidden="true">↗</span></a>
             <span className="story-feature-mark" aria-hidden="true">s.</span>
           </div>
         </section>

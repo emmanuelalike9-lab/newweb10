@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SearchIcon } from '../components/Icons';
 
 export default function SiteHeader({ query, setQuery, cartCount, user, onLogout }) {
@@ -44,13 +45,13 @@ export default function SiteHeader({ query, setQuery, cartCount, user, onLogout 
         <button className="mobile-nav-backdrop" type="button" aria-label="Close navigation" onClick={closeNavigation} />
       )}
       <nav id="main-navigation" className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Main navigation">
-        <a href="/" onClick={closeNavigation}>Home</a>
-        <a href="/shop" onClick={closeNavigation}>Catalog</a>
-        <a href="/about" onClick={closeNavigation}>About</a>
-        <a className="cart-nav-link" href="/cart" onClick={closeNavigation}>
+        <Link to="/" onClick={closeNavigation}>Home</Link>
+        <Link to="/shop" onClick={closeNavigation}>Catalog</Link>
+        <Link to="/about" onClick={closeNavigation}>About</Link>
+        <Link className="cart-nav-link" to="/cart" onClick={closeNavigation}>
           Cart
           <span className="nav-cart-count">{cartCount}</span>
-        </a>
+        </Link>
       </nav>
       <div className="header-actions">
         <label className="header-search">

@@ -14,12 +14,12 @@ export default function CartPage({ cartCount, cartProducts, cartSubtotal, change
           {user && (
             <button className="logout-button cart-logout" type="button" onClick={onLogout}>Log out</button>
           )}
-          <button className="continue-shopping" type="button" onClick={() => navigate('/')}>Continue shopping <span aria-hidden="true">↗</span></button>
+          <button className="continue-shopping" type="button" onClick={() => navigate('/shop')}>Continue shopping <span aria-hidden="true">↗</span></button>
         </div>
       </header>
 
       <main className="cart-main">
-        <a className="cart-back-link" href="/" onClick={(event) => { event.preventDefault(); navigate('/'); }}>← Back to the collection</a>
+        <a className="cart-back-link" href="/shop" onClick={(event) => { event.preventDefault(); navigate('/shop'); }}>← Back to the collection</a>
 
         <div className="cart-title-row">
           <div>
@@ -65,7 +65,7 @@ export default function CartPage({ cartCount, cartProducts, cartSubtotal, change
             <span className="cart-empty-mark">g.</span>
             <h2>Your cart is taking a little breather.</h2>
             <p>There’s nothing here yet. Your next favorite piece is waiting in the collection.</p>
-            <button type="button" onClick={() => navigate('/')}>Explore the collection <span aria-hidden="true">↗</span></button>
+            <button type="button" onClick={() => navigate('/shop')}>Explore the collection <span aria-hidden="true">↗</span></button>
           </div>
         )}
       </main>
